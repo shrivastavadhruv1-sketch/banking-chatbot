@@ -1,2 +1,18 @@
 # banking-chatbot
-banking chat bot to get personalised offer ,bank balance and fraud alert
+
+A simple conversational banking chatbot that supports:
+- personalized offers
+- bank balance checks
+- fraud alerts
+
+## Run
+
+```bash
+python chatbot.py
+```
+
+## Run tests
+
+```bash
+python -m unittest discover -s tests
+```
