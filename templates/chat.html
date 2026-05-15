@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Assistant - Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-sidebar">
+            <div class="sidebar-header">
+                <h2>Banking Assistant</h2>
+                <button id="profileBtn" class="profile-btn">👤 Profile</button>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3>Your Accounts</h3>
+                <select id="accountSelect" class="account-select">
+                    <option value="">Select Account...</option>
+                    {% for account in accounts %}
+                    <option value="{{ account.account_id }}">
+                        {{ account.account_type }} - ₹{{ "{:,.2f}".format(account.balance) }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3>Quick Actions</h3>
+                <ul class="quick-actions">
+                    <li><button class="quick-action-btn" onclick="sendMessage('Check my balance')">💰 Check Balance</button></li>
+                    <li><button class="quick-action-btn" onclick="sendMessage('Show recent transactions')">📊 Transactions</button></li>
+                    <li><button class="quick-action-btn" onclick="sendMessage('Show my personalized offers')">🎁 Offers</button></li>
+                    <li><button class="quick-action-btn" onclick="sendMessage('Tell me about loans')">📈 Loans</button></li>
+                    <li><button class="quick-action-btn" onclick="sendMessage('Show fraud alerts')">🚨 Alerts</button></li>
+                    <li><button class="quick-action-btn" onclick="sendMessage('Help')">❓ Help</button></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-footer">
+                <button id="logoutBtn" class="btn-logout">Logout</button>
+            </div>
+        </div>
+        
+        <div class="chat-main">
+            <div class="chat-header">
+                <h1>Banking Assistant</h1>
+                <p>How can I help you today?</p>
+            </div>
+            
+            <div id="chatMessages" class="chat-messages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        Hello! I'm your personal banking assistant. I can help you with balance inquiries, transactions, personalized offers, loan information, and much more. How can I assist you?
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input-area">
+                <form id="chatForm">
+                    <input type="text" id="userInput" placeholder="Ask me anything about your banking needs..." autocomplete="off">
+                    <button type="submit" class="send-btn">Send</button>
+                </form>
+            </div>
+        </div>
+        
+        <div id="profileModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Your Profile</h2>
+                    <button class="close-btn" onclick="closeProfileModal()">&times;</button>
+                </div>
+                <div id="profileContent" class="modal-body">
+                    <p>Loading profile...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
