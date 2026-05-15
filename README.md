@@ -2,6 +2,14 @@
 
 A comprehensive conversational AI chatbot for banking services, featuring personalized offers, balance inquiries, transaction alerts, and fraud detection.
 
+> **⚡ Quick Start**: New to the chatbot? Start with [GETTING_STARTED.md](GETTING_STARTED.md) for a 5-minute setup guide!
+
+> **📚 Documentation**:
+> - [Getting Started Guide](GETTING_STARTED.md) - 5-minute quick start
+> - [API Documentation](API_DOCUMENTATION.md) - Complete API reference
+> - [Deployment Guide](DEPLOYMENT.md) - Production deployment instructions
+> - [This README](README.md) - Feature overview and architecture
+
 ## Features
 
 ### Core Banking Features
