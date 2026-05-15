@@ -7,7 +7,7 @@ import json
 import os
 from datetime import datetime
 from config import DATABASE_PATH, DATABASE_URL
-import hashlib
+import bcrypt
 
 
 class Database:
@@ -228,13 +228,13 @@ class User:
     
     @staticmethod
     def _hash_password(password):
-        """Hash password with salt"""
-        return hashlib.sha256(password.encode()).hexdigest()
+        """Hash password using bcrypt"""
+        return bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
     
     @staticmethod
     def _verify_password(password, password_hash):
-        """Verify password"""
-        return User._hash_password(password) == password_hash
+        """Verify password using bcrypt"""
+        return bcrypt.checkpw(password.encode('utf-8'), password_hash.encode('utf-8'))
 
 
 class Account:

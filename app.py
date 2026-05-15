@@ -205,7 +205,7 @@ def get_accounts():
         
     except Exception as e:
         logger.error(f"Error fetching accounts: {str(e)}")
-        return jsonify({'success': False, 'error': str(e)}), 500
+        return jsonify({'success': False, 'error': 'An error occurred fetching accounts'}), 500
 
 
 @app.route('/api/balance/<int:account_id>', methods=['GET'])
@@ -227,7 +227,7 @@ def get_balance(account_id):
         
     except Exception as e:
         logger.error(f"Error fetching balance: {str(e)}")
-        return jsonify({'success': False, 'error': str(e)}), 500
+        return jsonify({'success': False, 'error': 'An error occurred fetching balance'}), 500
 
 
 @app.route('/api/profile', methods=['GET'])
@@ -252,7 +252,7 @@ def get_profile():
         
     except Exception as e:
         logger.error(f"Error fetching profile: {str(e)}")
-        return jsonify({'success': False, 'error': str(e)}), 500
+        return jsonify({'success': False, 'error': 'An error occurred fetching profile'}), 500
 
 
 @app.route('/api/alerts', methods=['GET'])
@@ -274,7 +274,7 @@ def get_alerts():
         
     except Exception as e:
         logger.error(f"Error fetching alerts: {str(e)}")
-        return jsonify({'success': False, 'error': str(e)}), 500
+        return jsonify({'success': False, 'error': 'An error occurred fetching alerts'}), 500
 
 
 @app.route('/api/offers', methods=['GET'])
@@ -295,7 +295,7 @@ def get_offers():
         
     except Exception as e:
         logger.error(f"Error fetching offers: {str(e)}")
-        return jsonify({'success': False, 'error': str(e)}), 500
+        return jsonify({'success': False, 'error': 'An error occurred fetching offers'}), 500
 
 
 @app.errorhandler(404)

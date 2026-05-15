@@ -6,7 +6,7 @@ import os
 from datetime import timedelta
 
 # Flask Configuration
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'  # Only enable if explicitly set
 SECRET_KEY = os.environ.get('SECRET_KEY', 'your-secret-key-change-in-production')
 HOST = os.environ.get('HOST', '0.0.0.0')
 PORT = int(os.environ.get('PORT', 5000))
